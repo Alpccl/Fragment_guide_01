@@ -51,10 +51,10 @@ public class ToastQuestion extends Fragment {
                int index = mBinding.RadioGroup1.indexOfChild(mBinding.RadioGroup1.findViewById(i));
                switch (index){
                    case 0:
-                       //Toast.makeText(ToastQuestion.this, "Respuesta Correcta" , LENGTH_SHORT).show();
+                       Toast.makeText(getContext(), "Respuesta Correcta" , LENGTH_SHORT).show();
                        mBinding.textCuestion.setText("Respuesta Correcta");
                    case 1:
-                       //Toast.makeText(ToastQuestion.this, "Se ha Equivocado", LENGTH_SHORT).show();
+                       Toast.makeText(getContext(), "Se ha Equivocado", LENGTH_SHORT).show();
                        mBinding.textCuestion.setText("Se ha equivocado, jeje");
                }
 
