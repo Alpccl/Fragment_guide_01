@@ -10,8 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.crisspian.fragment_guide_01.databinding.FragmentToastQuestionBinding;
+
+import static android.widget.Toast.*;
 
 
 public class ToastQuestion extends Fragment {
@@ -42,18 +45,20 @@ public class ToastQuestion extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mBinding.RadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                int index = mBinding.RadioGroup.indexOfChild(mBinding.RadioGroup.findViewById(i));
-                switch (index) {
-                    case 0:
-                        mBinding.textView.setText("Si lo Conozco");
-                        break;
-                    case 1:
-                        mBinding.textView.setText("no lo conozco");
-                }
-            }
-        });
+       mBinding.RadioGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(RadioGroup RadioGroup1, int i) {
+               int index = mBinding.RadioGroup1.indexOfChild(mBinding.RadioGroup1.findViewById(i));
+               switch (index){
+                   case 0:
+                       //Toast.makeText(ToastQuestion.this, "Respuesta Correcta" , LENGTH_SHORT).show();
+                       mBinding.textCuestion.setText("Respuesta Correcta");
+                   case 1:
+                       //Toast.makeText(ToastQuestion.this, "Se ha Equivocado", LENGTH_SHORT).show();
+                       mBinding.textCuestion.setText("Se ha equivocado, jeje");
+               }
+
+           }
+       });
+        };
     }
-}
